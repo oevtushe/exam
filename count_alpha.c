@@ -1,42 +1,68 @@
 #include <stdio.h>
-#include <unistd.h>
+#include <string.h>
 
-int		is_alpha(char c)
+char	ft_tolower(char c)
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-		return (1);
-	return (0);
+	if (c >= 'A' && c <= 'Z')
+		return (c + 32);
+	return (c);
 }
 
-void	count_alpha(char *str)
+void	mnm(const char *str, size_t i, int *bm, int *alp)
 {
-	int		i;
-	int		j;
-	int		cnt;
-	char	c;
+	size_t	j;
+	int		cur_cnt;
 
-	i = -1;
-	while (str[++i])
+	j = i;
+	cur_cnt = 1;
+	while (str[++j])
 	{
-		if (is_alpha(str[i]))
+		if (ft_tolower(str[j]) == ft_tolower(str[i]))
 		{
-			c = str[i];
-			j = i;
-			cnt = 1;
-			while (str[++j])
-			{
-				if (str[j] == str[i])
-				{
-					++cnt;
-					str[j] = '_';
-				}
-			}
-			printf( ? "%d%c, " : "%d%c\n", cnt, c);
+			bm[j] = 0;
+			++cur_cnt;
 		}
 	}
+	if (*alp)
+		printf(", ");
+	printf("%d%c", cur_cnt, ft_tolower(str[i]));
+	*alp = 1;
 }
 
-/* ___42_\0*/
+void	count_alpha_hlp(const char *str, size_t len)
+{
+	size_t	i;
+	char	c;
+	int		bm[len];
+	int		alp;
+
+	i = len;
+	alp = 0;
+	while (i--)
+	{
+		c = str[i];
+		bm[i] = ((c >= 'a' && c <= 'z') 
+				|| (c >= 'A' && c <= 'Z')) ? 1 : 0;
+	}
+	i = 0;
+	while (i < len)
+	{
+		if (bm[i])
+			mnm(str, i, bm, &alp);
+		++i;
+	}
+	printf("\n");
+}
+
+void	count_alpha(const char *str)
+{
+	size_t len;
+
+	len = 0;
+	while (str[len])
+		++len;
+	count_alpha_hlp(str, len);
+}
 
 int		main(int argc, char **argv)
 {
