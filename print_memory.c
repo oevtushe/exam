@@ -1,6 +1,6 @@
 #include <unistd.h>
 
-void			ft_putstr(const char *str)
+static void	ft_putstr(const char *str)
 {
 	char c;
 
@@ -8,7 +8,7 @@ void			ft_putstr(const char *str)
 		write(1, &c, 1);
 }
 
-void			print_hex(unsigned char c)
+static void	print_hex(unsigned char c)
 {
 	unsigned char	tmp;
 	char			byte[3];
@@ -28,7 +28,7 @@ void			print_hex(unsigned char c)
 	ft_putstr(byte);
 }
 
-void			print_chars(const unsigned char *data, size_t len)
+static void	print_chars(const unsigned char *data, size_t len)
 {
 	size_t	i;
 	char	cd;
@@ -46,7 +46,7 @@ void			print_chars(const unsigned char *data, size_t len)
 	ft_putstr("\n");
 }
 
-void			fill_empty(const unsigned char *arr, size_t cnt, size_t pref, size_t size)
+static void	fill_empty(const unsigned char *arr, size_t cnt, size_t pref, size_t size)
 {
 	int adx;
 
@@ -68,6 +68,8 @@ void			print_memory(const void *addr, size_t size)
 	pref = 0;
 	while (cnt < size)
 	{
+		print_hex(arr[cnt]);
+		++cnt;
 		if (cnt && cnt % 2 == 0)
 			ft_putstr(" ");
 		if (cnt && cnt % 16 == 0)
@@ -75,18 +77,7 @@ void			print_memory(const void *addr, size_t size)
 			print_chars(arr + pref, cnt - pref);
 			pref = cnt;
 		}
-		print_hex(arr[cnt]);
-		++cnt;
 	}
-	if (size % 16 != 0)
+	if (cnt % 16 != 0)
 		fill_empty(arr, cnt, pref, size);
-}
-
-int				main(void)
-{
-	int	tab[10] = {0, 23, 150, 255,
-		              12, 16,  21, 42};
-
-	print_memory(tab, sizeof(tab));
-	return (0);
 }
