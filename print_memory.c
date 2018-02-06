@@ -51,7 +51,7 @@ static void	fill_empty(const unsigned char *arr, size_t cnt, size_t pref, size_t
 	int adx;
 
 	adx = (16 - (size % 16)) * 2;
-	adx += (adx / 4) + 1;
+	adx += adx / 4;
 	while (adx--)
 		ft_putstr(" ");
 	print_chars(arr + pref, cnt - pref);
