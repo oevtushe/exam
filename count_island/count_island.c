@@ -25,7 +25,7 @@ void	count_island(char **map)
 	char	filler;
 
 	i = 0;
-	filler = '1';
+	filler = '0';
 	while (map[i])
 	{
 		j = 0;
