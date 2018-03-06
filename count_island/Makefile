@@ -17,18 +17,18 @@ DEPS := island.h
 all: $(NAME)
 
 $(OBJ_DIR)/%.o: %.c $(DEPS)
-	@echo "\033[34mCompiling: $@"
+	@echo "\033[34mCompiling: $@\033[m"
 	@gcc $(KEYS) -o $@ -c $<
 
 
 $(NAME): $(OBJS)
-	@echo "\033[33mLinking..."
+	@echo "\033[33mLinking...\033[m"
 	@gcc $(KEYS) -o $(NAME) $^
 
 $(OBJS): |$(OBJ_DIR)
 
 clean:
-	@echo "\033[32mCleaning..."
+	@echo "\033[32mCleaning...\033[m"
 	@rm -f $(OBJS)
 
 fclean: clean
