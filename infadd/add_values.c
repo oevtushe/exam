@@ -1,4 +1,24 @@
-#include "inf_add.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   add_values.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: oevtushe <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/05/28 13:49:01 by oevtushe          #+#    #+#             */
+/*   Updated: 2018/05/28 13:57:53 by oevtushe         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "infadd.h"
+
+/*
+** Function handle carry. 
+**
+** Given char array in each block contains sum
+** of corresponding digits. Function takes carry and converts
+** value to digit code in ASCII.
+*/
 
 static void	val_normalize(char **str, size_t len)
 {
@@ -26,8 +46,7 @@ static void	val_normalize(char **str, size_t len)
 }
 
 /*
-** 27
-**  3
+** Function sums given arguments
 */
 
 char	*add_values(char *v1, char *v2)

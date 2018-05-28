@@ -1,4 +1,20 @@
-#include "inf_add.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   prefix_tools.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: oevtushe <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/05/28 11:53:24 by oevtushe          #+#    #+#             */
+/*   Updated: 2018/05/28 13:45:27 by oevtushe         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "infadd.h"
+
+/*
+** Function removes first N characters from the string
+*/
 
 void	prefix_del(char **str, size_t n)
 {
@@ -17,6 +33,11 @@ void	prefix_del(char **str, size_t n)
 	free(*str);	
 	*str = buf;
 }
+
+/*
+** Function adds one character at the beginning
+** of string.
+*/
 
 void	prefix_add(char **str, char prefix)
 {

@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oevtushe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/28 13:57:00 by oevtushe          #+#    #+#             */
-/*   Updated: 2018/05/28 13:57:07 by oevtushe         ###   ########.fr       */
+/*   Created: 2018/05/28 15:43:38 by oevtushe          #+#    #+#             */
+/*   Updated: 2018/05/28 15:47:37 by oevtushe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "infadd.h"
 
-char	*ft_strnew(size_t size)
+void	ft_putstr(char *str)
 {
-	size_t	i;
-	char	*str;
+	size_t len;
 
-	i = 0;
-	str = (char *)malloc(sizeof(char) * (size + 1));
-	while (i <= size)
-		str[i++] = '\0';
-	return (str);
+	len = ft_strlen(str);
+	write(1, str, len);
 }

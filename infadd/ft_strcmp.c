@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oevtushe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/28 13:57:00 by oevtushe          #+#    #+#             */
-/*   Updated: 2018/05/28 13:57:07 by oevtushe         ###   ########.fr       */
+/*   Created: 2018/05/28 13:45:02 by oevtushe          #+#    #+#             */
+/*   Updated: 2018/05/28 13:57:35 by oevtushe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "infadd.h"
 
-char	*ft_strnew(size_t size)
+int		ft_strcmp(char *str1, char *str2)
 {
-	size_t	i;
-	char	*str;
-
-	i = 0;
-	str = (char *)malloc(sizeof(char) * (size + 1));
-	while (i <= size)
-		str[i++] = '\0';
-	return (str);
+	while ((unsigned char)*str1 == (unsigned char)*str2)
+	{
+		str1++;
+		str2++;
+	}
+	return (*str1 - *str2);
 }

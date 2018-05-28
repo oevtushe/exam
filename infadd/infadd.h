@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   infadd.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oevtushe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/28 13:57:00 by oevtushe          #+#    #+#             */
-/*   Updated: 2018/05/28 13:57:07 by oevtushe         ###   ########.fr       */
+/*   Created: 2018/05/28 13:47:17 by oevtushe          #+#    #+#             */
+/*   Updated: 2018/05/28 15:45:10 by oevtushe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "infadd.h"
+#ifndef INFADD_H
+# define INFADD_H
 
-char	*ft_strnew(size_t size)
-{
-	size_t	i;
-	char	*str;
+# include <stdlib.h>
 
-	i = 0;
-	str = (char *)malloc(sizeof(char) * (size + 1));
-	while (i <= size)
-		str[i++] = '\0';
-	return (str);
-}
+size_t	ft_strlen(char *str);
+char	*ft_strnew(size_t size);
+int		ft_strcmp(char *str1, char *str2);
+void	ft_putstr(char *str);
+
+char	*add_values(char *v1, char *v2);
+void	tr_lzeroes(char **res);
+void	prefix_del(char **str, size_t n);
+void	prefix_add(char **str, char prefix);
+
+#endif
