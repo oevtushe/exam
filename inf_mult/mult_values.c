@@ -6,11 +6,16 @@
 /*   By: oevtushe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/04 16:41:23 by oevtushe          #+#    #+#             */
-/*   Updated: 2018/06/04 16:43:36 by oevtushe         ###   ########.fr       */
+/*   Updated: 2018/06/04 17:10:11 by oevtushe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "inf_mult.h"
+
+/*
+** Function represents int array as char array,
+** and deletes int array.
+*/
 
 static char	*make_string_n_free(int **arr, size_t size)
 {
@@ -30,6 +35,18 @@ static char	*make_string_n_free(int **arr, size_t size)
 	free(*arr);
 	return (str);
 }
+
+/*
+** Function takes care of carry.
+**
+** Example:
+**		arr = [6, 18, 12]
+**		val_normalize(arr, arr_len)
+**		arr = [4, 0, 6, 0]
+**
+** The array size have to be properly calculated
+** before.
+*/
 
 static	void	val_normalize(int *arr, size_t size)
 {
@@ -52,6 +69,16 @@ static	void	val_normalize(int *arr, size_t size)
 	if (carry)
 		arr[0] += carry;
 }
+
+/*
+** Function multiplies numbers given in a strings.
+**
+** 26512000 -> approximated length of number after
+** which integer overflow will happen. Function
+** val_normalize 'spread' the value in each array
+** block among the whole array which predicts the
+** overflow.
+*/
 
 char	*mult_values(char *str1, char *str2, size_t len1, size_t len2)
 {

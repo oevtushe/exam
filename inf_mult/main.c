@@ -6,11 +6,17 @@
 /*   By: oevtushe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/04 10:05:05 by oevtushe          #+#    #+#             */
-/*   Updated: 2018/06/04 16:47:46 by oevtushe         ###   ########.fr       */
+/*   Updated: 2018/06/04 17:11:57 by oevtushe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "inf_mult.h"
+
+/*
+** Function multiplies numbers given in a strings
+** and returns result. Both strings can be any length
+** possible.
+*/
 
 static char	*inf_mult(char *str1, char *str2)
 {
